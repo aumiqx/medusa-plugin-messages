@@ -1,0 +1,79 @@
+{
+  "name": "@aumiqx/medusa-plugin-messages",
+  "version": "0.1.0-alpha.0",
+  "description": "Self-hosted messaging for Medusa v2 marketplaces — customer↔vendor and vendor↔admin threads with Server-Sent Events real-time push, unread tracking, and zero external SaaS.",
+  "author": "Aumiqx Technologies",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aumiqx/medusa-plugin-messages.git"
+  },
+  "homepage": "https://github.com/aumiqx/medusa-plugin-messages#readme",
+  "bugs": {
+    "url": "https://github.com/aumiqx/medusa-plugin-messages/issues"
+  },
+  "keywords": [
+    "medusa",
+    "medusajs",
+    "medusa-plugin",
+    "messaging",
+    "chat",
+    "sse",
+    "marketplace",
+    "b2c"
+  ],
+  "files": [".medusa/server"],
+  "exports": {
+    "./package.json": "./package.json",
+    "./workflows": "./.medusa/server/src/workflows/index.js",
+    "./.medusa/server/src/modules/*": "./.medusa/server/src/modules/*/index.js",
+    "./modules/*": "./.medusa/server/src/modules/*/index.js",
+    "./providers/*": "./.medusa/server/src/providers/*/index.js",
+    "./admin": {
+      "import": "./.medusa/server/src/admin/index.mjs",
+      "require": "./.medusa/server/src/admin/index.js",
+      "default": "./.medusa/server/src/admin/index.js"
+    },
+    "./*": "./.medusa/server/src/*.js"
+  },
+  "scripts": {
+    "build": "medusa plugin:build",
+    "dev": "medusa plugin:develop",
+    "prepublishOnly": "medusa plugin:build",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@medusajs/admin-sdk": "2.11.3",
+    "@medusajs/cli": "2.11.3",
+    "@medusajs/framework": "2.11.3",
+    "@medusajs/medusa": "2.11.3",
+    "@medusajs/test-utils": "2.11.3",
+    "@medusajs/ui": "4.0.25",
+    "@medusajs/icons": "2.11.3",
+    "@swc/core": "1.5.7",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.2.25",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.21",
+    "zod": "^3.22.4"
+  },
+  "peerDependencies": {
+    "@medusajs/admin-sdk": "^2.11.0",
+    "@medusajs/cli": "^2.11.0",
+    "@medusajs/framework": "^2.11.0",
+    "@medusajs/medusa": "^2.11.0",
+    "@medusajs/ui": "^4.0.0",
+    "@medusajs/icons": "^2.11.0",
+    "zod": "^3.22.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
